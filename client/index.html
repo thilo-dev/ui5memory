@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html class="sap-phone">
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Worklist</title>
+
+	<!-- Bootstrapping UI5 -->
+	<script id="sap-ui-bootstrap" src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js" data-sap-ui-libs="sap.m" data-sap-ui-theme="sap_belize"
+	 data-sap-ui-compatVersion="edge" data-sap-ui-resourceroots='{"thilo.dev.ui5.memory": "."}' data-sap-ui-frameOptions="trusted">
+
+	</script>
+
+	<style>
+		.shake:hover,
+		.shake:focus {
+			-webkit-animation-name: spaceboots;
+			-webkit-animation-duration: 0.8s;
+			-webkit-transform-origin: 50% 50%;
+			-webkit-animation-iteration-count: infinite;
+			-webkit-animation-timing-function: linear;
+		}
+
+		@-webkit-keyframes spaceboots {
+			0% {
+				-webkit-transform: translate(2px, 1px) rotate(0deg);
+			}
+			10% {
+				-webkit-transform: translate(-1px, -2px) rotate(-1deg);
+			}
+			20% {
+				-webkit-transform: translate(-3px, 0px) rotate(1deg);
+			}
+			30% {
+				-webkit-transform: translate(0px, 2px) rotate(0deg);
+			}
+			40% {
+				-webkit-transform: translate(1px, -1px) rotate(1deg);
+			}
+			50% {
+				-webkit-transform: translate(-1px, 2px) rotate(-1deg);
+			}
+			60% {
+				-webkit-transform: translate(-3px, 1px) rotate(0deg);
+			}
+			70% {
+				-webkit-transform: translate(2px, 1px) rotate(-1deg);
+			}
+			80% {
+				-webkit-transform: translate(-1px, -1px) rotate(1deg);
+			}
+			90% {
+				-webkit-transform: translate(2px, 2px) rotate(0deg);
+			}
+			100% {
+				-webkit-transform: translate(1px, -2px) rotate(-1deg);
+			}
+		}
+
+		.MemoryTileFrame {
+			padding: 10px 7px;
+		}
+
+		.MemoryTileTile {
+			padding: 10px 0px;
+			border-radius: 15px;
+			background: #3f5161;
+			color: #cae4fb;
+			text-align: center;
+		}
+		/* entire container, keeps perspective */
+
+		.flip-container {
+			perspective: 1000px;
+		}
+		/* flip the pane when hovered */
+	
+		/*.flip-container:hover .flipper,*/
+		.flip-container.hover .flipper {
+			transform: rotateY(180deg);
+		}
+
+
+		.flip-container,
+		.front,
+		.back {
+			width: 140px;
+			height: 144px;
+		}
+		/* flip speed goes here */
+
+		.flipper {
+			transition: 0.6s;
+			transform-style: preserve-3d;
+
+			position: relative;
+		}
+		/* hide back of pane during swap */
+
+		.front,
+		.back {
+			backface-visibility: hidden;
+
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		/* front pane, placed above back */
+
+		.front {
+			z-index: 2;
+			/* for firefox 31 */
+			transform: rotateY(0deg);
+		}
+		/* back, initially hidden pane */
+
+		.back {
+			transform: rotateY(180deg);
+		}
+
+		*/
+	</style>
+
+	<script>
+		sap.ui.getCore().attachInit(function () {
+			sap.ui.require([
+				"sap/m/Shell",
+				"sap/ui/core/ComponentContainer"
+			], function (Shell, ComponentContainer) {
+				// initialize the UI component
+				new Shell({
+					app: new ComponentContainer({
+						height: "100%",
+						name: "thilo.dev.ui5.memory"
+					})
+				}).placeAt("content");
+			});
+			var html = document.getElementsByTagName('html')[0]
+			html.setAttribute('class', "sap-phone  " + html.getAttribute('class').split(' ').splice(1).join(" "))
+		});
+	</script>
+
+</head>
+
+<!-- UI Content -->
+
+<body class="sapUiBody sapUiSizeCompact" id="content">
+</body>
+
+</html>

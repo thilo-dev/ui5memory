@@ -1,0 +1,14 @@
+<mvc:View 
+    xmlns:mvc="sap.ui.core.mvc" controllerName="thilo.dev.ui5.memory.controller.Game" displayBlock="true" 
+    xmlns:memory="thilo.dev.ui5.memory.controls"
+    xmlns="sap.m" class="sap-phone">
+    <TileContainer tiles="{game>/gameSet}">
+        <tiles>
+            <CustomTile>    
+                <content>
+                    <memory:MemoryTile iconSrc="{game>iconName}" press="onMemoryTilePressed"/>
+                </content>
+            </CustomTile>
+        </tiles>
+    </TileContainer>
+</mvc:View>
